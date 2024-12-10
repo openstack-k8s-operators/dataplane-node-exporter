@@ -43,7 +43,7 @@ func (Collector) Collect(ch chan<- prometheus.Metric) {
 		return
 	}
 
-	buf := appctl.Call("dpctl/show")
+	buf := appctl.Call("ovs-vswitchd", "dpctl/show")
 	if buf == "" {
 		return
 	}
